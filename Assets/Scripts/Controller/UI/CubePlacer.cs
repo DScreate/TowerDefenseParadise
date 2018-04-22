@@ -65,22 +65,28 @@ public class CubePlacer : MonoBehaviour {
         {
             Vector3 finalPosition = grid.GetCellCenterWorld(cell);
 
-            TowerController tower = TowerFactory.towerFactory.BuildBaseTower(index, finalPosition, Quaternion.Euler(Vector3.zero));
-            tower.transform.position = finalPosition;
-            //cube.transform.localScale = Vector3.one * 0.5f;
 
-            if (testPath == null)
-                testPath = Instantiate(enemyPrefab, spawnTransform.position, Quaternion.Euler(0, 0, 0));
-            else
+            // TODO: Stop new towers from "floating" above the grid.
+            TowerController tower = TowerFactory.towerFactory.BuildBaseTower(index, new Vector3(finalPosition.x, 0, finalPosition.y), Quaternion.Euler(Vector3.zero));
+
+            if (tower != null)
             {
-                testPath.transform.position = spawnTransform.position;
-                testPath.transform.rotation = Quaternion.Euler(0, 0, 0);
-                testPath.gameObject.SetActive(true);
+                tower.transform.position = finalPosition;
+                //cube.transform.localScale = Vector3.one * 0.5f;
+
+                if (testPath == null)
+                    testPath = Instantiate(enemyPrefab, spawnTransform.position, Quaternion.Euler(0, 0, 0));
+                else
+                {
+                    testPath.transform.position = spawnTransform.position;
+                    testPath.transform.rotation = Quaternion.Euler(0, 0, 0);
+                    testPath.gameObject.SetActive(true);
+                }
+
+                SpawnController.spawnController.PathEnemiesToGoal();
+
+                StartCoroutine(CheckIfBlockGoal(testPath, tower, Time.deltaTime));
             }
-
-            SpawnController.spawnController.PathEnemiesToGoal();
-
-            StartCoroutine(CheckIfBlockGoal(testPath, tower, Time.deltaTime));
         }
     }
 

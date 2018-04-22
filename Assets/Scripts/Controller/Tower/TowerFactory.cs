@@ -28,6 +28,9 @@ public class TowerFactory : MonoBehaviour {
 
     public TowerController BuildBaseTower(int index, Vector3 position, Quaternion rotation)
     {
+        if (GameManager.money < baseTowers[index].tower.buildCost)
+            return null;
+
         TowerController tower = Instantiate(baseTowers[index], position, rotation, transform);
 
         // Can do stuff here before returning tower to game.

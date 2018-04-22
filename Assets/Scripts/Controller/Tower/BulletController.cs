@@ -59,7 +59,7 @@ public class BulletController : PoolObject {
 
     private void Update()
     {
-        if (Time.time >= creationTime + lifetime || Vector3.Distance(tower.transform.position, transform.position) * 1.6f > tower.tower.range)
+        if (Time.time >= creationTime + lifetime || (tower != null && Vector3.Distance(tower.transform.position, transform.position) * 1.6f > tower.tower.range))
             Destroy();
 
         //transform.rotation = Quaternion.LookRotation(rbody.velocity);
@@ -77,7 +77,7 @@ public class BulletController : PoolObject {
         ResetRbody();
     }
 
-    private void OnCollisionStay(Collision other)
+    /*private void OnCollisionStay(Collision other)
     {
         //Debug.Log("Collision " + other.gameObject.name, other.gameObject);
 
@@ -89,17 +89,62 @@ public class BulletController : PoolObject {
 
             if (enemy != null)
             {
-                //Debug.Log("Collision Enemy");
-
-                enemy.TakeDamage(damage);
-
-                Destroy();
+                OnBulletHit(enemy);
             }
             else
             {
                 //Destroy(gameObject);
             }
         }
+    }*/
+
+    private void OnCollisionEnter(Collision other)
+    {
+        //Debug.Log("Collision " + other.gameObject.name, other.gameObject);
+
+        Transform otherParent = other.transform.parent;
+
+        if (otherParent != null)
+        {
+            EnemyController enemy = otherParent.GetComponent<EnemyController>();
+
+            if (enemy != null)
+            {
+                OnBulletHit(enemy);
+            }
+            else
+            {
+                //Destroy(gameObject);
+            }
+        }
+    }
+
+    /*private void OnCollisionExit(Collision other)
+    {
+        //Debug.Log("Collision " + other.gameObject.name, other.gameObject);
+
+        Transform otherParent = other.transform.parent;
+
+        if (otherParent != null)
+        {
+            EnemyController enemy = otherParent.GetComponent<EnemyController>();
+
+            if (enemy != null)
+            {
+                OnBulletHit(enemy);
+            }
+            else
+            {
+                //Destroy(gameObject);
+            }
+        }
+    }*/
+
+    public virtual void OnBulletHit(EnemyController enemy)
+    {
+        enemy.TakeDamage(damage);
+
+        Destroy();
     }
 
     public override void Destroy()

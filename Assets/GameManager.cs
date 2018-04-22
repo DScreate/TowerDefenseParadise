@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static int money = 1000;
+    public int _money = 1000;
 
     private static GameManager _gameManager;
 
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour {
 
 	void Update ()
     {
-		
+        _money = money;
 	}
 
     public static void AddMoney(int amount)
