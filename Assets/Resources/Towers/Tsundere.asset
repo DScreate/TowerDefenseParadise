@@ -17,8 +17,10 @@ MonoBehaviour:
   currentLevel: 1
   health: 500
   damage: 10
-  attackSpeed: 1
+  attackSpeed: 20
   range: 6
+  bulletPrefab: {fileID: 1467036323582862, guid: 20d19def40d452f4ca219ac6cba63d49,
+    type: 2}
   temper: 1
   jealousy: 0
   personality: 3

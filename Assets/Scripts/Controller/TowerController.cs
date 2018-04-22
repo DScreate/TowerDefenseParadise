@@ -9,6 +9,7 @@ public class TowerController : MonoBehaviour {
     public float turnSpeedConst = 1f;
 
     public Transform turretBase;
+    public Transform firingHarness;
 
     public Transform target;
 
@@ -23,13 +24,13 @@ public class TowerController : MonoBehaviour {
 
     void Update()
     {
-        
-
         if (Time.time >= nextFireTime)
         {
-            nextFireTime = Time.time + (1 / tower.attackSpeed);
+            //nextFireTime = Time.time + (1 / tower.attackSpeed);
 
             target = FindClosestTarget();
+
+            float angle = RotateTurret();
 
             if (target != null)
             {
@@ -37,25 +38,53 @@ public class TowerController : MonoBehaviour {
 
                 if(distance <= tower.range)
                 {
-                    
+                    Debug.DrawLine(firingHarness.position, target.position);
 
-                    //Vector3 offset = target.position - transform.position;
-                    //Vector3 axis = Vector3.forward;
-
-                    //targetRotation = Quaternion.LookRotation(offset, axis);
-                    //turretBase.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, turnSpeedConst * Time.deltaTime);
+                    FireBullet(angle);
                 }
             }
         }
-
-        if(target != null)
+        else
         {
-            float angle = Vector3.Angle(transform.position, target.position);
+            RotateTurret();
+        }
+    }
 
-            Debug.Log("angle: " + angle);
+    public void FireBullet(float angle)
+    {
+        /*
+        //Debug.Log("Fire");
+        //Vector3 eulers = lookRot.eulerAngles;
+        Quaternion rot = Quaternion.Euler(0, lookRot, 0);
+
+        BulletController temp = Instantiate(tower.bulletPrefab, (Vector3)position + lookRot * firingHarness.transform.position, rot).GetComponent<BulletController>();
+        Rigidbody rigidbody = temp.GetComponent<Rigidbody>();
+        temp.damage = tower.damage;
+
+        rigidbody.velocity = rot * (Vector2.up * 10);
+
+        if (tower.attackSpeed != 0f)
+            nextFireTime = Time.time + (1f / tower.attackSpeed);*/
+
+        Quaternion rot = Quaternion.Euler(0, angle, 0);
+        BulletController temp = Instantiate(tower.bulletPrefab, firingHarness.transform.position, Quaternion.Euler(0, angle, 0)).GetComponentInChildren<BulletController>();
+        temp.GetComponentInChildren<Rigidbody>().velocity = Quaternion.Euler(0, angle - 90, 0) * (Vector3.forward * 15);
+    }
+
+    private float RotateTurret()
+    {
+        if (target != null)
+        {
+            float angle = 180 - AngleBetweenVector2(new Vector2(transform.position.x, transform.position.z), new Vector2(target.position.x, target.position.z));
+
+            //Debug.Log("angle: " + angle);
 
             turretBase.rotation = Quaternion.Euler(new Vector3(0, angle));
+
+            return angle;
         }
+
+        return 0;
     }
 
     private Transform FindClosestTarget()
@@ -76,6 +105,16 @@ public class TowerController : MonoBehaviour {
             }
         }
 
-        return closest;
+        if (closestDist <= tower.range)
+            return closest;
+        else
+            return null;
+    }
+
+    private float AngleBetweenVector2(Vector2 vec1, Vector2 vec2)
+    {
+        Vector2 diference = vec2 - vec1;
+        float sign = (vec2.y < vec1.y) ? -1.0f : 1.0f;
+        return Vector2.Angle(Vector2.right, diference) * sign;
     }
 }

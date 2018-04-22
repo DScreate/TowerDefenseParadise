@@ -16,18 +16,18 @@ public class GoalController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision Trigger");
+        //Debug.Log("Collision Trigger");
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Collision Trigger");
+        //Debug.Log("Collision Trigger");
 
-        Debug.Log(other);
+        //Debug.Log(other);
 
         EnemyController enemy = other.transform.parent.gameObject.GetComponent<EnemyController>();
 
-        Debug.Log(enemy);
+        //Debug.Log(enemy);
 
         if (enemy != null)
         {
