@@ -1,0 +1,5 @@
+Test;Hello, how are you?;0;L
+Test;I'm hella ok!;0;R
+Test;Cool Cool;1;L
+Test;Whatever I'm just going to talk a lot for testing purposes.;1;R
+Player;Restart:line,0;Next Scene?:scene,2
