@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
     public Transform goalTransform;
 
     public int health = 100;
+    public int creditValue = 100;
 
     NavMeshPath path;
 
@@ -64,6 +65,8 @@ public class EnemyController : MonoBehaviour {
     public void Die()
     {
         SpawnController.spawnController.enemies.Remove(this);
+
+        GameManager.AddMoney(creditValue);
 
         Destroy(gameObject);
     }

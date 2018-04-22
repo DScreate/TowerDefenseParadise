@@ -14,6 +14,8 @@ public class SpawnController : MonoBehaviour {
 
     public List<EnemyController> enemies = new List<EnemyController>();
 
+    public Transform enemyHolder;
+
     private static SpawnController _spawnController;
 
     public static SpawnController spawnController
@@ -36,7 +38,7 @@ public class SpawnController : MonoBehaviour {
     {
         if (Time.time >= nextSpawn)
         {
-            EnemyController enemy = Instantiate(enemyController);
+            EnemyController enemy = Instantiate(enemyController, enemyHolder);
 
             nextSpawn = Time.time + spawnDelay;
 

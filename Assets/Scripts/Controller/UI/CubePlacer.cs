@@ -11,10 +11,14 @@ public class CubePlacer : MonoBehaviour {
     public GameObject cubePrefab;
     public EnemyController enemyPrefab;
 
+    public int failCount = 0;
+
     private Grid grid;
     private EnemyController testPath;
 
     NavMeshPath path;
+
+
 
     private void Awake()
     {
@@ -32,12 +36,23 @@ public class CubePlacer : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hitInfo))
             {
-                PlaceCubeNear(hitInfo.point);
+                PlaceCubeNear(hitInfo.point, 0);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1) && (testPath == null || !testPath.gameObject.activeSelf))
+        {
+            RaycastHit hitInfo;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hitInfo))
+            {
+                PlaceCubeNear(hitInfo.point, 1);
             }
         }
     }
 
-    private void PlaceCubeNear(Vector3 clickPoint)
+    private void PlaceCubeNear(Vector3 clickPoint, int index)
     {
         int colPos = Mathf.FloorToInt(clickPoint.x / grid.cellSize.x / 1.6f), rowPos = Mathf.FloorToInt(clickPoint.z / grid.cellSize.z / 1.6f);
 
@@ -50,8 +65,8 @@ public class CubePlacer : MonoBehaviour {
         {
             Vector3 finalPosition = grid.GetCellCenterWorld(cell);
 
-            GameObject cube = Instantiate(cubePrefab, finalPosition, Quaternion.Euler(Vector3.zero));
-            cube.transform.position = finalPosition;
+            TowerController tower = TowerFactory.towerFactory.BuildBaseTower(index, finalPosition, Quaternion.Euler(Vector3.zero));
+            tower.transform.position = finalPosition;
             //cube.transform.localScale = Vector3.one * 0.5f;
 
             if (testPath == null)
@@ -65,11 +80,11 @@ public class CubePlacer : MonoBehaviour {
 
             SpawnController.spawnController.PathEnemiesToGoal();
 
-            StartCoroutine(CheckIfBlockGoal(testPath, cube, Time.deltaTime));
+            StartCoroutine(CheckIfBlockGoal(testPath, tower, Time.deltaTime));
         }
     }
 
-    IEnumerator CheckIfBlockGoal(EnemyController testPath, GameObject cube, float waitTime)
+    IEnumerator CheckIfBlockGoal(EnemyController testPath, TowerController tower, float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
 
@@ -78,11 +93,16 @@ public class CubePlacer : MonoBehaviour {
 
         if (testPath.CheckPath(path))
         {
-
+            GameManager.AddMoney(-tower.tower.buildCost);
         }
         else
         {
-            Destroy(cube);
+            Destroy(tower.gameObject);
+
+            failCount++;
+
+            GameManager.AddMoney(Mathf.Min(-10 * failCount, 0));
+
             Debug.Log("Would block goal");
         }
 

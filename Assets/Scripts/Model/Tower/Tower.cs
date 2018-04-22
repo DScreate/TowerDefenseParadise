@@ -19,6 +19,7 @@ public class Tower : ScriptableObject {
     public int damage;
     public float attackSpeed;
     public float range;
+    public float bulletVelocity;
     public GameObject bulletPrefab;
 
     // Tower Personality

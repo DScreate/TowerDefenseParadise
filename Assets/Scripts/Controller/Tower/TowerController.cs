@@ -9,7 +9,8 @@ public class TowerController : MonoBehaviour {
     public float turnSpeedConst = 1f;
 
     public Transform turretBase;
-    public Transform firingHarness;
+    public Transform[] firingHarnesses;
+    private int currentFiringHarness = 0;
 
     public Transform target;
 
@@ -19,7 +20,9 @@ public class TowerController : MonoBehaviour {
 
     void Start()
     {
-        tower = TowerFactory.towerFactory.CreateTower(0);
+        tower = TowerFactory.CreateTower(tower);
+
+        PoolManager.CheckForPool(tower.bulletPrefab, 500);
     }
 
     void Update()
@@ -38,7 +41,9 @@ public class TowerController : MonoBehaviour {
 
                 if(distance <= tower.range)
                 {
-                    Debug.DrawLine(firingHarness.position, target.position);
+                    Debug.DrawLine(firingHarnesses[currentFiringHarness].position, target.position);
+
+
 
                     FireBullet(angle);
                 }
@@ -63,10 +68,20 @@ public class TowerController : MonoBehaviour {
 
         rigidbody.velocity = rot * (Vector2.up * 10);*/
 
-        Quaternion rot = Quaternion.Euler(0, angle, 0);
-        BulletController temp = Instantiate(tower.bulletPrefab, firingHarness.transform.position, Quaternion.Euler(0, angle, 0)).GetComponentInChildren<BulletController>();
-        temp.GetComponentInChildren<Rigidbody>().velocity = Quaternion.Euler(0, angle - 90, 0) * (Vector3.forward * 15);
+        Quaternion rot = Quaternion.Euler(0, angle, 90);
+        //BulletController temp = Instantiate(tower.bulletPrefab, firingHarnesses[currentFiringHarness++].transform.position, Quaternion.Euler(0, angle, 0)).GetComponentInChildren<BulletController>();
+        GameObject tempParent = PoolManager.ReuseObject(tower.bulletPrefab, firingHarnesses[currentFiringHarness++].transform.position, rot);
+        BulletController temp = tempParent.GetComponentInChildren<BulletController>();
+        temp.parent = tempParent;
+        Rigidbody tempRbody = temp.GetComponentInChildren<Rigidbody>();
+        temp.rbody = tempRbody;
+        tempRbody.velocity = Quaternion.Euler(0, angle - 90, 0) * (Vector3.forward * tower.bulletVelocity);
         temp.tower = this;
+
+        currentFiringHarness = currentFiringHarness % firingHarnesses.Length;
+
+        /*if (firingHarnesses.Length >= currentFiringHarness)
+            currentFiringHarness = 0;*/
 
         if (tower.attackSpeed != 0f)
             nextFireTime = Time.time + (1f / tower.attackSpeed);
