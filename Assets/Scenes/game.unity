@@ -300,24 +300,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &665961447 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1388856455740680, guid: 20d19def40d452f4ca219ac6cba63d49,
-    type: 2}
-  m_PrefabInternal: {fileID: 682847797}
---- !u!114 &665961449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 665961447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916d25988e8988e4b9d5f74d7a684cc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  lifetime: 2
 --- !u!1001 &682847797
 Prefab:
   m_ObjectHideFlags: 0
@@ -360,23 +342,6 @@ Prefab:
     - target: {fileID: 1467036323582862, guid: 20d19def40d452f4ca219ac6cba63d49, type: 2}
       propertyPath: m_Name
       value: BulletController
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491025193705466, guid: 20d19def40d452f4ca219ac6cba63d49, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491025193705466, guid: 20d19def40d452f4ca219ac6cba63d49, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54664916962215462, guid: 20d19def40d452f4ca219ac6cba63d49,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 4491025193705466, guid: 20d19def40d452f4ca219ac6cba63d49, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1467036323582862, guid: 20d19def40d452f4ca219ac6cba63d49, type: 2}
       propertyPath: m_IsActive
@@ -728,6 +693,49 @@ MonoBehaviour:
   cam: {fileID: 358835151}
   agent: {fileID: 1015371249}
   goalTransform: {fileID: 0}
+  health: 100
+--- !u!1 &1027507446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1027507448}
+  - component: {fileID: 1027507447}
+  m_Layer: 0
+  m_Name: TowerFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1027507447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027507446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7543ac5b054f004daebb8310d4810b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTowers:
+  - {fileID: 11400000, guid: 198d5f23c470f2d4489dde7d861a3c96, type: 2}
+--- !u!4 &1027507448
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1027507446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0221575, y: -6.1805696, z: 0.15908575}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1194243759
 GameObject:
   m_ObjectHideFlags: 0

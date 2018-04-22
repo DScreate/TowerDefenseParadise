@@ -19,6 +19,20 @@ public class TowerFactory : MonoBehaviour {
         }
     }
 
+    
 
+    public Tower CreateTower(int index)
+    {
+        Tower ret = Instantiate(baseTowers[index]);
+
+        return ret;
+    }
+
+    public static Tower CreateTower(Tower tower)
+    {
+        Tower ret = Instantiate(tower);
+
+        return ret;
+    }
 
 }

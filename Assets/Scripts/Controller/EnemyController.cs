@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour {
 
     public Transform goalTransform;
 
+    public int health = 100;
+
     NavMeshPath path;
 
     float nextPathUpdate;
@@ -49,6 +51,14 @@ public class EnemyController : MonoBehaviour {
         }
 
         return ret;
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        health -= dmg;
+
+        if (health <= 0)
+            Die();
     }
 
     public void Die()

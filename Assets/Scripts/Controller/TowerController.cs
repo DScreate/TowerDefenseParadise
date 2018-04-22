@@ -19,7 +19,7 @@ public class TowerController : MonoBehaviour {
 
     void Start()
     {
-
+        tower = TowerFactory.towerFactory.CreateTower(0);
     }
 
     void Update()
@@ -61,14 +61,15 @@ public class TowerController : MonoBehaviour {
         Rigidbody rigidbody = temp.GetComponent<Rigidbody>();
         temp.damage = tower.damage;
 
-        rigidbody.velocity = rot * (Vector2.up * 10);
-
-        if (tower.attackSpeed != 0f)
-            nextFireTime = Time.time + (1f / tower.attackSpeed);*/
+        rigidbody.velocity = rot * (Vector2.up * 10);*/
 
         Quaternion rot = Quaternion.Euler(0, angle, 0);
         BulletController temp = Instantiate(tower.bulletPrefab, firingHarness.transform.position, Quaternion.Euler(0, angle, 0)).GetComponentInChildren<BulletController>();
         temp.GetComponentInChildren<Rigidbody>().velocity = Quaternion.Euler(0, angle - 90, 0) * (Vector3.forward * 15);
+        temp.tower = this;
+
+        if (tower.attackSpeed != 0f)
+            nextFireTime = Time.time + (1f / tower.attackSpeed);
     }
 
     private float RotateTurret()

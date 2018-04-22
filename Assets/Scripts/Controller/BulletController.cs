@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour {
 
     public float lifetime = 2f;
 
+    public TowerController tower;
+
     private float creationTime;
 
     private void Start()
@@ -17,7 +19,7 @@ public class BulletController : MonoBehaviour {
 
     private void Update()
     {
-        if (Time.time >= creationTime + lifetime)
+        if (Time.time >= creationTime + lifetime || Vector3.Distance(tower.transform.position, transform.position) * 1.6f > tower.tower.range)
             Destroy(transform.parent.gameObject);
     }
 
@@ -34,6 +36,8 @@ public class BulletController : MonoBehaviour {
             if (enemy != null)
             {
                 //Debug.Log("Collision Enemy");
+
+                enemy.TakeDamage(damage);
 
                 Destroy(gameObject);
             }
