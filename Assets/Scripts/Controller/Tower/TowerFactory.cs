@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TowerFactory : MonoBehaviour {
 
-    public TowerController[] baseTowers;
+    public TowerController[] baseTowerControllers;
+    public Dictionary<string, Tower> baseTowers; 
 
     //private static bool created = false;
 
@@ -31,19 +32,28 @@ public class TowerFactory : MonoBehaviour {
         //}
     }*/
 
+    private void Awake()
+    {
+        baseTowers = new Dictionary<string, Tower>();
+
+        foreach(TowerController towerContr in baseTowerControllers)
+        {
+            Debug.Log(towerContr.tower.name);
+            baseTowers.Add(towerContr.tower.name, Instantiate(towerContr.tower));
+        }
+    }
+
     public static Tower CreateTower(Tower tower)
     {
-        Tower ret = Instantiate(tower);
-
-        return ret;
+        return towerFactory.baseTowers[tower.name];
     }
 
     public TowerController BuildBaseTower(int index, Vector3 position, Quaternion rotation)
     {
-        if (GameManager.money < baseTowers[index].tower.buildCost)
+        if (GameManager.money < baseTowerControllers[index].tower.buildCost)
             return null;
 
-        TowerController tower = Instantiate(baseTowers[index], position, rotation, transform);
+        TowerController tower = Instantiate(baseTowerControllers[index], position, rotation, transform);
 
         // Can do stuff here before returning tower to game.
 

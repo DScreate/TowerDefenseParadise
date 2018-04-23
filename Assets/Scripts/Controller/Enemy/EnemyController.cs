@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour {
     //public Camera cam;
 
     public NavMeshAgent agent;
+    public float speed;
 
     public Transform goalTransform;
     public GameObject soundHolder;
@@ -17,6 +18,9 @@ public class EnemyController : MonoBehaviour {
     public int creditValue = 100;
 
     public AudioClip[] deathSounds;
+
+    public bool isSlowed = false;
+    public float slowUntil;
     
     NavMeshPath path;
 
@@ -33,12 +37,28 @@ public class EnemyController : MonoBehaviour {
         health = 150 * GameManager.chapter;
 
         soundHolder = GameManager.soundHolder;
+
+        speed = agent.speed;
     }
 
 
 
 	void Update ()
     {
+        if(isSlowed)
+        {
+            if (Time.time > slowUntil)
+                isSlowed = false;
+            else
+            {
+                agent.speed = speed * 0.5f;
+            }
+        }
+        else
+        {
+            agent.speed = speed;
+        }
+
         if (Time.time >= nextPathUpdate && goalTransform != null)
         {
             SetPathToGoal(goalTransform.position);
