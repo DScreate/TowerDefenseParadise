@@ -31,9 +31,10 @@ public class GoalController : MonoBehaviour {
 
         if (enemy != null)
         {
-            enemy.Die();
+            enemy.Die(giveCredits: false);
 
-            Debug.Log(enemy);
+            //Debug.Log(enemy);
+            GameManager.LoseLife();
         }
     }
 }

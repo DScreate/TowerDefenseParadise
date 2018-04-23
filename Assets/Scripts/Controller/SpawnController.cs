@@ -10,7 +10,9 @@ public class SpawnController : MonoBehaviour {
 
     public EnemyController enemyController;
 
-    public float spawnDelay, nextSpawn;
+    public static int spawnCount = 10000;
+
+    public static float spawnDelay = 1, nextSpawn;
 
     public List<EnemyController> enemies = new List<EnemyController>();
 
@@ -31,12 +33,12 @@ public class SpawnController : MonoBehaviour {
 
     void Start()
     {
-
+        
     }
 
     void Update()
     {
-        if (Time.time >= nextSpawn)
+        if (Time.time >= nextSpawn && spawnCount > 0)
         {
             EnemyController enemy = Instantiate(enemyController, enemyHolder);
 
@@ -46,6 +48,14 @@ public class SpawnController : MonoBehaviour {
             enemy.goalTransform = goalTransform;
 
             enemies.Add(enemy);
+
+            spawnCount--;
+        }
+
+        if (spawnCount == 0 && enemies.Count == 0)
+        {
+            spawnCount = -1;
+            GameManager.gameManager.NextLevel();
         }
     }
 
@@ -55,5 +65,21 @@ public class SpawnController : MonoBehaviour {
         {
             enemy.SetPathToGoal(goalTransform.position);
         }
+    }
+
+    public static void StartLevel()
+    {
+        spawnCount = GameManager.chapter * 50;
+        nextSpawn = Time.time + 15f;
+    }
+
+    public void OnLevelLose()
+    {
+        foreach(EnemyController enemy in enemies)
+        {
+            enemy.Die(false, false);
+        }
+
+        enemies.Clear();
     }
 }

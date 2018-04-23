@@ -18,9 +18,13 @@ public class EnemyController : MonoBehaviour {
 
     float nextPathUpdate;
 
+    private bool dead = false;
+
     void Start ()
     {
         path = new NavMeshPath();
+
+        health = 150 * GameManager.chapter;
     }
 
 
@@ -58,15 +62,19 @@ public class EnemyController : MonoBehaviour {
     {
         health -= dmg;
 
-        if (health <= 0)
+        if (health <= 0 && !dead)
             Die();
     }
 
-    public void Die()
+    public void Die(bool remove = true, bool giveCredits = true)
     {
-        SpawnController.spawnController.enemies.Remove(this);
+        dead = true;
 
-        GameManager.AddMoney(creditValue);
+        if(remove)
+            SpawnController.spawnController.enemies.Remove(this);
+
+        if(giveCredits)
+            GameManager.AddMoney(creditValue);
 
         Destroy(gameObject);
     }

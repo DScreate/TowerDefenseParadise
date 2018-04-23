@@ -1,0 +1,5 @@
+Me;<i>I can't believe I've failed... Oh no here comes Double-chan!</i>;0;R
+Double;You've failed us once again! Try again will ya?!;2;L
+Me;Certainly Double-chan...;0;L
+Me;<i>I'll have to try even harder to beat today's defense session!</i>;0;R
+Player;Restart:line,0;Try Again!:scene,game

@@ -18,16 +18,31 @@ public class TowerController : MonoBehaviour {
 
     public Quaternion targetRotation;
 
-    void Start()
+    //private bool created = false;
+
+    void Awake()
     {
         tower = TowerFactory.CreateTower(tower);
 
-        PoolManager.CheckForPool(tower.bulletPrefab, 500);
+        if(tower.bulletPrefab != null)
+            PoolManager.CheckForPool(tower.bulletPrefab, 500);
+
+        /*if (!created)
+        {
+            DontDestroyOnLoad(gameObject);
+            created = true;
+            //Debug.Log("Awake: " + gameObject);
+        }*/
+    }
+
+    void Start()
+    {
+
     }
 
     void Update()
     {
-        if (Time.time >= nextFireTime)
+        if (tower.attackSpeed > 0 && Time.time >= nextFireTime)
         {
             //nextFireTime = Time.time + (1 / tower.attackSpeed);
 
@@ -89,7 +104,7 @@ public class TowerController : MonoBehaviour {
 
     private float RotateTurret()
     {
-        if (target != null)
+        if (target != null && turretBase != null)
         {
             float angle = 180 - AngleBetweenVector2(new Vector2(transform.position.x, transform.position.z), new Vector2(target.position.x, target.position.z));
 

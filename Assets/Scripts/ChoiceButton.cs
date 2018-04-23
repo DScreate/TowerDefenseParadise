@@ -28,7 +28,9 @@ public class ChoiceButton : MonoBehaviour {
 				manager.ShowDialogue();
 				break;
 			case "scene":
-				SceneManager.LoadScene("Scene" + commandModifier);
+                if(commandModifier == "game")
+                    GameManager.StartLevel();
+                SceneManager.LoadScene(commandModifier);
 				break;
 			case "Yes" :
 				// do something with Yes

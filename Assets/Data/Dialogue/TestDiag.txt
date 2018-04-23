@@ -11,4 +11,4 @@ Me;We'll see about that Missile-chan! Let's go to the field and I'll show you wh
 Missile;Show me what y-you know?!;1;L
 Missile;...;0;L
 Missile;I guess that will be acceptable, I'll go fetch Double Barrel Tower and meet you on the field;0;L
-Player;Restart:line,0;Next Scene?:scene,game
+Player;Restart:line,0;Start Level:scene,game

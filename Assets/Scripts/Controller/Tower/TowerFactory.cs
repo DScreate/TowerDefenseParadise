@@ -6,6 +6,8 @@ public class TowerFactory : MonoBehaviour {
 
     public TowerController[] baseTowers;
 
+    //private static bool created = false;
+
     private static TowerFactory _towerFactory;
 
     public static TowerFactory towerFactory
@@ -18,6 +20,16 @@ public class TowerFactory : MonoBehaviour {
             return _towerFactory;
         }
     }
+
+    /*private void Awake()
+    {
+        // (!created)
+        //
+            DontDestroyOnLoad(gameObject);
+            //created = true;
+            //Debug.Log("Awake: " + gameObject);
+        //}
+    }*/
 
     public static Tower CreateTower(Tower tower)
     {

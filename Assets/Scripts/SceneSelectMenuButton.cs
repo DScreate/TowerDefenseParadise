@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class SceneSelectMenuButton : MonoBehaviour {
 
 	public void LoadSceneSelect() {
-		SceneManager.LoadScene(1);
+        //GameManager.StartLevel();
+
+        SceneManager.LoadScene("TestDiag");
 	}
 }
