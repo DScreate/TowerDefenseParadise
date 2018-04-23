@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class SceneSelectMenuButton : MonoBehaviour {
@@ -8,5 +9,10 @@ public class SceneSelectMenuButton : MonoBehaviour {
         //GameManager.StartLevel();
 
         SceneManager.LoadScene("TestDiag");
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
 	}
 }
