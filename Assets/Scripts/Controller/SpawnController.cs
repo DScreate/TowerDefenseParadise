@@ -77,7 +77,7 @@ public class SpawnController : MonoBehaviour {
     {
         foreach(EnemyController enemy in enemies)
         {
-            enemy.Die(false, false);
+            enemy.Die(false, false, false);
         }
 
         enemies.Clear();

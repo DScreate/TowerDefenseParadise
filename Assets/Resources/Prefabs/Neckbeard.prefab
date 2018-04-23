@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1372865344075884}
   m_IsPrefabParent: 1
+--- !u!1 &1184653058024422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4664780883929390}
+  m_Layer: 9
+  m_Name: SoundHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1191223744670212
 GameObject:
   m_ObjectHideFlags: 1
@@ -86,11 +101,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1372865344075884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.09, y: 0, z: 7.27}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4411558538214730}
   - {fileID: 4928611723483252}
+  - {fileID: 4664780883929390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -108,6 +124,19 @@ Transform:
   m_Father: {fileID: 4375487075577696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &4664780883929390
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184653058024422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4375487075577696}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4809608637115552
 Transform:
   m_ObjectHideFlags: 1
@@ -242,11 +271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f56e93d70f9e24fae2f26b9cae6a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   agent: {fileID: 195903932253941624}
   goalTransform: {fileID: 0}
+  soundHolder: {fileID: 1184653058024422}
   health: 250
   creditValue: 100
+  deathSounds:
+  - {fileID: 8300000, guid: b829599932efe9b42a06680f8d993b6f, type: 3}
+  - {fileID: 8300000, guid: 6e19802c207a5c3419bd853d9a29ee3b, type: 3}
+  - {fileID: 8300000, guid: 89d18ac85a756184496e951a6df1063e, type: 3}
+  mixerGroup: {fileID: 24300002, guid: 2a8da5f543621514ea79725b0f5e95db, type: 2}
 --- !u!136 &136638443951383808
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -1,0 +1,15 @@
+Me;<i>Whoah! I can't believe I managed to win!</i>;0;R
+Missile;Wow Player you managed to win!!;1;L
+Missile;...;0;L
+Missile;N-not like I was rooting for you or anything;1;L
+Double;We blasted those weirdos! <color=red>KABOOM</color>;0;L
+Double;...and uh...you did well too Player!;1;L
+Me;Certainly Double-chan...;0;L
+Wall;...;0;L
+Me;Well I was only able to do it thanks to all of your help! Thank you everyone!;0;R
+Me;...and thank <b>YOU</b> we hope you enjoyed playing our game!;0;R
+Me;Here's some credits:;0;R
+Me;Programming and Art: Tyelor Klein and Derek Sams;0;R
+Me;Music: Beyond by LAKEY INSPIRED make sure to check out their SounCloud!;0;R
+Me;Sounds: Enemy Death Sounds: Russ from Discord;0;R
+Me;Sounds: Tower Sounds: Derek's Sister and Misha from Discord;0;R

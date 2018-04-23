@@ -38,6 +38,18 @@ public class ChoiceButton : MonoBehaviour {
 			case "No" :
 				// do something with No
 				break;
+			case "Another Option":
+				break;
+			case "Missile":
+				TowerFactory.towerFactory.baseTowers[1].tower.damage += 5;
+				break;
+			case "Gun":
+				TowerFactory.towerFactory.baseTowers[2].tower.attackSpeed += 2;
+				break;
+			case "Wall":
+				TowerFactory.towerFactory.baseTowers[0].tower.buildCost =
+					(int) (TowerFactory.towerFactory.baseTowers[0].tower.buildCost * 0.5);
+				break;
 		}
 	}
 }
