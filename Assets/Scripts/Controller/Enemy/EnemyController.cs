@@ -2,21 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class EnemyController : MonoBehaviour {
 
-    public Camera cam;
+    //public Camera cam;
 
     public NavMeshAgent agent;
 
     public Transform goalTransform;
+    public GameObject soundHolder;
 
     public int health = 100;
     public int creditValue = 100;
 
+    public AudioClip[] deathSounds;
+    
     NavMeshPath path;
 
     float nextPathUpdate;
+
+    public AudioMixerGroup mixerGroup;
 
     private bool dead = false;
 
@@ -25,6 +31,8 @@ public class EnemyController : MonoBehaviour {
         path = new NavMeshPath();
 
         health = 150 * GameManager.chapter;
+
+        soundHolder = GameManager.soundHolder;
     }
 
 
@@ -66,7 +74,7 @@ public class EnemyController : MonoBehaviour {
             Die();
     }
 
-    public void Die(bool remove = true, bool giveCredits = true)
+    public void Die(bool remove = true, bool giveCredits = true, bool playSound = true)
     {
         dead = true;
 
@@ -75,12 +83,33 @@ public class EnemyController : MonoBehaviour {
 
         if(giveCredits)
             GameManager.AddMoney(creditValue);
-
+        
+        if(playSound)
+            StartSound(deathSounds[GameManager.GetRandomInt(0, deathSounds.Length)]);
+        
         Destroy(gameObject);
     }
 
     public void SetPathToGoal(Vector3 goal)
     {
         agent.SetDestination(goal);
+    }
+    
+    public void StartSound(AudioClip clip)
+    {
+        AudioSource audioSource = soundHolder.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.outputAudioMixerGroup = mixerGroup;
+        audioSource.Play();
+
+        StartCoroutine(DestroyAudioSource(audioSource, 3f));
+    }
+
+    private IEnumerator DestroyAudioSource(AudioSource audioSource, float wait)
+    {
+        yield return new WaitForSeconds(wait);
+
+        //Debug.Log("Destroy Audio Source");
+        Destroy(audioSource);
     }
 }

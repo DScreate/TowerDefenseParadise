@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour {
     public static int lives = 20;
     public static int chapter = 1;
     public static int kills = 0;
-
+    public static GameObject soundHolder;
+    
     private static bool created = false;
 
     private static GameObject towerDefenseHolder;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             created = true;
             towerDefenseHolder = transform.Find("TowerDefenseHolder").gameObject;
+            soundHolder = towerDefenseHolder .transform.Find("SoundHolder").gameObject;
+            Random.InitState(System.DateTime.Now.Millisecond);
             //Debug.Log("Awake: " + gameObject);
         }
     }
@@ -48,6 +51,11 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+    public static int GetRandomInt(int min, int max)
+    {
+        return Random.Range(min, max);
+    }
+    
     public static void AddMoney(int amount)
     {
         money += amount;
