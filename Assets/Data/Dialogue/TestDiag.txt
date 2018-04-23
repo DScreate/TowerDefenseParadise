@@ -1,5 +1,14 @@
-Test;Hello, how are you?;0;L
-Test;I'm hella ok!;0;R
-Test;Cool Cool;1;L
-Test;Whatever I'm just going to talk a lot for testing purposes.;1;R
-Player;Restart:line,0;Next Scene?:scene,2
+Me;<i>Senior year of Tower Defense Academy and I had yet to really make an impact...</i>;0;R
+Me;*sigh*<i>But no longer! Now all those years of Sunken Defense and Winter Maul are finally going to pay off! This will be my time to shine!</i>;0;R
+Me;The question is...which of the towers do I want to start with? I suppose just a quick review would be useful..;0;R
+Me;...hmm...let's see...;0;R
+Me;Oh! Here's one of few towers I actually know;0;R
+Missile;AH! Player, what are you doing here so early?;0;L
+Me;<i>Missile Tower is nice enough if a bit strange, she's always acting like she doesn't want to see but then is also strangely caring..</i>;0;R
+Missile;Well, n-not that it really matters. Your presence here will have no effect on today's defense session;1;L
+Me;<i>This could be my chance to finally show Missile Tower I'm serious about becoming a Tower Defense Master!</i>;0;R
+Me;We'll see about that Missile-chan! Let's go to the field and I'll show you what I know!;0;R
+Missile;Show me what y-you know?!;1;L
+Missile;...;0;L
+Missile;I guess that will be acceptable, I'll go fetch Double Barrel Tower and meet you on the field;0;L
+Player;Restart:line,0;Next Scene?:scene,game_1
