@@ -13,5 +13,5 @@ Missile;...;0;L
 Missile;I guess that will be acceptable, I'll go fetch Double Barrel Tower and meet you on the field;0;L
 Me;Missile Tower and Double Tower...both equally lovely but...it's just so hard to choose which I want to focus on!;0;R
 Me;I'll have to choose one though...or maybe I could just go have lunch with Mr. Wall...he is rather handsome...;0;R
-Player;Missile Tower:missile tower,0;Double Tower;double tower,0;Mr. Wall:Mr. Wall,0
-Player;To Battle!:line,0;Start Level:scene,game
+Player;Missile Tower:missile,0;Double Tower:double,0;Mr. Wall:tower,0
+Player;Read Again:line,0;Start Level:scene,game
