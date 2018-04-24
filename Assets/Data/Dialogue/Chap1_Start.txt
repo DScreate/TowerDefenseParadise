@@ -1,10 +1,10 @@
-Me;<i>Senior year of Tower Defense Academy and I had yet to really make an impact...</i>;0;R
+Me;<i>Senior year of Tower Defense Academy and I have yet to really make an impact...</i>;0;R
 Me;*sigh*<i>But no longer! Now all those years of Sunken Defense and Winter Maul are finally going to pay off! This will be my time to shine!</i>;0;R
 Me;The question is...which of the towers do I want to start with? I suppose just a quick review would be useful..;0;R
 Me;...hmm...let's see...;0;R
 Me;Oh! Here's one of few towers I actually know;0;R
 Missile;AH! Player, what are you doing here so early?;0;L
-Me;<i>Missile Tower is nice enough if a bit strange, she's always acting like she doesn't want to see but then is also strangely caring..</i>;0;R
+Me;<i>Missile Tower is nice enough, if a bit strange, she's always acting like she doesn't want to see me but then is also strangely caring..</i>;0;R
 Missile;Well, n-not that it really matters. Your presence here will have no effect on today's defense session;1;L
 Me;<i>This could be my chance to finally show Missile Tower I'm serious about becoming a Tower Defense Master!</i>;0;R
 Me;We'll see about that Missile-chan! Let's go to the field and I'll show you what I know!;0;R
@@ -13,5 +13,4 @@ Missile;...;0;L
 Missile;I guess that will be acceptable, I'll go fetch Double Barrel Tower and meet you on the field;0;L
 Me;Missile Tower and Double Tower...both equally lovely but...it's just so hard to choose which I want to focus on!;0;R
 Me;I'll have to choose one though...or maybe I could just go have lunch with Mr. Wall...he is rather handsome...;0;R
-Player;Missile Tower:missile,0;Double Tower:double,0;Mr. Wall:tower,0
-Player;Read Again:line,0;Start Level:scene,game
+Player;Missile Tower:scene,Chap1_missile;Double Tower:scene,Chap1_double;Mr. Wall:scene,Chap1_wall

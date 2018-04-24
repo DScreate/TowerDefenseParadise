@@ -1,0 +1,11 @@
+Me;<i>I'm so proud of myself for beating that defense session! I hope the towers come talk to me...</i>;0;R
+Me;<i>I think that's missile tower right now!</i>;0;R
+Missile;Great job on that defense session! I... I mean we could've handled it just fine without you;1;L
+Me;<i>Somehow I don't think she meant that.</i>;0;R
+Me;Hey thanks Missile Tower! I think you also did awesome!;0;R
+Me;I'm just glad we were all able to pull through, there were a few spots I was feeling a bit overwhelmed!;0;R
+Me;But thanks to everyone's help, we did it!;0;R
+Missile;...;1;L
+Missile;I've got to go now!;1;L
+Me;<i>I wonder where she ran off to in a hurry...</i>;0;R
+Player;Restart:line,0;Start Level:scene,game

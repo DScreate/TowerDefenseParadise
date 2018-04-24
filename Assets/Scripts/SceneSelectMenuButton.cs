@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class SceneSelectMenuButton : MonoBehaviour {
 
-	public void LoadSceneSelect() {
+    public void LoadSceneSelect()
+    {
         //GameManager.StartLevel();
 
-        SceneManager.LoadScene("TestDiag");
+        SceneManager.LoadScene("Chap1_Start");
+	}
+
+	public void Quit()
+	{
+		Application.Quit();
 	}
 }

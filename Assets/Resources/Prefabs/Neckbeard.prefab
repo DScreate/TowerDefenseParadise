@@ -275,7 +275,7 @@ MonoBehaviour:
   goalTransform: {fileID: 0}
   soundHolder: {fileID: 1184653058024422}
   health: 250
-  creditValue: 100
+  creditValue: 25
   deathSounds:
   - {fileID: 8300000, guid: b829599932efe9b42a06680f8d993b6f, type: 3}
   - {fileID: 8300000, guid: 6e19802c207a5c3419bd853d9a29ee3b, type: 3}

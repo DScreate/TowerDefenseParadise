@@ -9,14 +9,35 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 078f7d4181c779049827520701dac0b0
   - enabled: 1
-    path: Assets/Scenes/TestDiag.unity
-    guid: ad307f97fa28bb34fab14f262bbd3296
-  - enabled: 1
     path: Assets/Scenes/game.unity
     guid: f61042a3da9db474ebc15361f69725e8
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 1a2b800ffcd456a4bb6660b5dbeb2c23
   - enabled: 1
-    path: Assets/Scenes/Chap2.unity
+    path: Assets/Scenes/Chap1_Start.unity
+    guid: bcc0f21b52dfa8249ad1a8e9fb96da93
+  - enabled: 1
+    path: Assets/Scenes/Chap1_Double.unity
+    guid: cfbae8a26c933f445a985b7fb8150fd5
+  - enabled: 1
+    path: Assets/Scenes/Chap1_Missile.unity
+    guid: 985d0111da9c28e4082db6e5a0380fd6
+  - enabled: 1
+    path: Assets/Scenes/Chap1_Wall.unity
+    guid: a55055db819e3fb4ea63c5ad193a3539
+  - enabled: 1
+    path: Assets/Scenes/Chap2_Start.unity
     guid: d0f646987ebb32c43ac9893ae13ca69e
+  - enabled: 1
+    path: Assets/Scenes/Chap2_Double.unity
+    guid: 6e8fcef0d17e92a47baa831c4d5eeda2
+  - enabled: 1
+    path: Assets/Scenes/Chap2_Missile.unity
+    guid: 428aa6b8406a47f4da558af8ea181dac
+  - enabled: 1
+    path: Assets/Scenes/Chap2_Wall.unity
+    guid: 8c0d6ebcb528f4c49b1f396d2125fa08
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: a41004853a190144c8bffb7c0cc3d648

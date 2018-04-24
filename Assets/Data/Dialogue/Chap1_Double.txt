@@ -1,0 +1,21 @@
+Me;<i>Let's see...Double Barrel Tower usually eats around here...There she is!</i>;0;R
+Me;Hey Double Barrel Tower, mind if I eat with you?;0;R
+Double;<color=red>KABOOM</color>;0;L
+Double;<color=red>BLAMMO</color>;0;L
+Double;<color=red>DAKKADAKKADAKKA</color>;0;L
+Me;Uh...Double Barrel Tower?;0;R
+Double;...Oh! P-Player, I didn't see you there..;0;L
+Me;Yes well uh...you seemed to be preoccupied with uh...shooting or something;0;R
+Double;What can I say, I just love shooting! The loud noises, flashy sounds, the smells...all of it!;0;L
+Double;...especially with you guiding where I shoot;1;L
+Me;R-Really? I didn't know you felt that way..;0;R
+Double;Well of course! What is a tower without the strategist and what is a strategist without a tower?!;0;L
+Double;We rely on one another to accomplish our goals and come to know each other better!~;1;L
+Me;<i>Wow I never knew Double Barrel Tower was such a philosopher...</i>;0;R
+Me;I guess you do have a point!;0;R
+Me;From now on, I'll make sure and remember that we are working as a team!;0;R
+Double;Just don't forget the one who taught you that ok?;1;L
+Me;Of course not! Together, Double Barrel, you and me are gonna make a great team!;0;R
+Double;A-Awesome!;1;L
+Player;Awesome for sure!:double,0
+Player;Let's Go!:scene,game
