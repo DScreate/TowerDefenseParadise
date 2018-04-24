@@ -1,0 +1,19 @@
+Me;<i>Let's see...Missile Tower usually eats around here...There she is!</i>;0;R
+Me;Yo Missile Tower, mind if I eat with you?;0;R
+Missile;P-Player! Oh uh....that should be acceptable?;0;L
+Me;Great! More fruits and vegetables again today then?;0;R
+Missile;OH uh...yes well I try and stay healthy...;0;L
+Me;That's good to hear! Usually my lunches are pretty lame...;0;R
+Missile;Well uh...;0;L
+Missile;You could have some of...mine if you wanted...;1;L
+Me;R-Really? But don't you prepare your lunches on your own each morning?;0;R
+Missile;J-just take it! I don't want it anyways!;1;L
+Me;*eating*;0;R
+Me;<i>Whoah this is really good, the way the tofu is mixed together so expertly with the greens...Delicious!</i>;0;R
+Me;This is great! Thanks a bunch!~;0;R
+Missile;W-well of course it is! Not like I wanted you to have it or anything but...uh...;1;L
+Missile;...;1;L
+Missile;Oh uh i-it's time to start the battle!;1;L
+Me;Oh you're right! We'll have to talk later!;0;R
+Player;That lunch was good!:missile,0
+Player;Let's Go!:scene,game
