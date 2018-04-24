@@ -120,6 +120,7 @@ public class EnemyController : MonoBehaviour {
         AudioSource audioSource = soundHolder.AddComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.outputAudioMixerGroup = mixerGroup;
+        audioSource.volume = 0.1f;
         audioSource.Play();
 
         StartCoroutine(DestroyAudioSource(audioSource, 3f));

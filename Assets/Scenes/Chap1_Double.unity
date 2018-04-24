@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1d8ef41e4803326408e37558f50adff8, type: 3}
   - {fileID: 21300000, guid: d22c5f54fed15234eac44dcd1eefdd79, type: 3}
   - {fileID: 21300000, guid: 70ac93f0b84f0fa48a019154feda4c22, type: 3}
-  textColor: {r: 0.44852942, g: 0.61206895, b: 1, a: 1}
+  textColor: {r: 0.44705883, g: 0.6117647, b: 1, a: 1}
 --- !u!212 &56620532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -517,7 +517,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.8235294, g: 0.89411765, b: 1, a: 0.15294118}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

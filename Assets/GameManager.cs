@@ -106,6 +106,6 @@ public class GameManager : MonoBehaviour {
 
         towerDefenseHolder.SetActive(false);
 
-        SceneManager.LoadScene("Chap2_Start");
+        SceneManager.LoadScene(chapter == 2 ? "Chap2_Start" : "VictoryScene");
     }
 }
