@@ -87,10 +87,7 @@ public class TowerPlacer : MonoBehaviour {
                     }
                 }
 
-                if (Input.GetMouseButtonDown(1) && (testPath == null || !testPath.gameObject.activeSelf))
-                {
-                    activeTowerIndex = -1;
-                }
+                
             }
             else
             {
@@ -98,7 +95,10 @@ public class TowerPlacer : MonoBehaviour {
             }
         }
 
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            activeTowerIndex = -1;
+        }
     }
 
     private void PlaceCubeNear(Vector3 clickPoint, int index)

@@ -10,7 +10,5 @@ public class IceBullet : BulletController {
         enemy.slowUntil = Time.time + 3f;
 
         base.OnBulletHit(enemy);
-
-
     }
 }
