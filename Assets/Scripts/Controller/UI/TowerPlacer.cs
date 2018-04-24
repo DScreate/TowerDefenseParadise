@@ -55,7 +55,7 @@ public class TowerPlacer : MonoBehaviour {
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool hit = false;
 
-        if (activeTowerIndex < 0 || activeTowerIndex >= TowerFactory.towerFactory.baseTowers.Length)
+        if (activeTowerIndex < 0 || activeTowerIndex >= TowerFactory.towerFactory.baseTowerControllers.Length)
         {
             gridHighlight.gameObject.SetActive(false);
         }
@@ -74,7 +74,7 @@ public class TowerPlacer : MonoBehaviour {
 
             gridHighlight.position = pos;
 
-            if (GameManager.money >= TowerFactory.towerFactory.baseTowers[activeTowerIndex].tower.buildCost && !towers.ContainsKey(cell))
+            if (GameManager.money >= TowerFactory.towerFactory.baseTowerControllers[activeTowerIndex].tower.buildCost && !towers.ContainsKey(cell))
             {
                 gridMeshRenderer.material = allowedMat;
 
@@ -87,10 +87,7 @@ public class TowerPlacer : MonoBehaviour {
                     }
                 }
 
-                if (Input.GetMouseButtonDown(1) && (testPath == null || !testPath.gameObject.activeSelf))
-                {
-                    activeTowerIndex = -1;
-                }
+                
             }
             else
             {
@@ -98,7 +95,10 @@ public class TowerPlacer : MonoBehaviour {
             }
         }
 
-
+        if (Input.GetMouseButtonDown(1))
+        {
+            activeTowerIndex = -1;
+        }
     }
 
     private void PlaceCubeNear(Vector3 clickPoint, int index)

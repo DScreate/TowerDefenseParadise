@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSelectMenuButton : MonoBehaviour {
 
-	public void LoadSceneSelect() {
+    public void LoadSceneSelect()
+    {
         //GameManager.StartLevel();
 
         SceneManager.LoadScene("Chap1_Start");
