@@ -1,15 +1,15 @@
 Me;<i>Whoah...Mr. Wall is really big</i>;0;R
 Me;Hey Mr. Wall, you don't mind if I sit with you for lunch do you?;0;R
-Wall;...;0;L
+MrWall;...;0;L
 Me;Uh...I'll take that as a yes;0;R
-Wall;...;0;L
+MrWall;...;0;L
 Me;...I guess you don't really say much do you Mr. Wall? I guess it makes sense, you don't shoot things or blow them up or whatever like the other towers;0;R
 Me;Hmm...but you are always so useful, I always end up putting more of you than any of the other towers...;0;R
-Wall;...;0;L
+MrWall;...;0;L
 Me;It really is nice to have a tower like you Mr. Wall;0;R
 Me;*eating*;0;R
 Me;I'm not sure how you handle it, all the other towers seem to be so obsessive over their scores and looks but you just continue being the same reliable tower!;0;R
 Me;...I uh...g-guess what I'm saying is, thanks for everything you've done so far...;0;R
-Wall;...;1;L
+MrWall;...;1;L
 Player;Mr. Wall is nice:wall,0
 Player;Let's Go!:scene,game

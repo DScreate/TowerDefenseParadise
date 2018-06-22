@@ -20,7 +20,7 @@ MonoBehaviour:
   attackSpeed: 1
   range: 3
   bulletVelocity: 20
-  bulletPrefab: {fileID: 1467036323582862, guid: 20d19def40d452f4ca219ac6cba63d49,
+  bulletPrefab: {fileID: 1467036323582862, guid: 89154ff11cc0f0843be61ec75935d816,
     type: 2}
   temper: 1
   jealousy: 0

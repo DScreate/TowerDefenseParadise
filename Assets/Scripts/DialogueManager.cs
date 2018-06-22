@@ -77,6 +77,8 @@ public class DialogueManager : MonoBehaviour {
 			
 			Character character = GameObject.Find (characterName).GetComponent<Character>();
 
+            Debug.Log(GameObject.Find(characterName));
+
 			dialogueBox.color = character.textColor;
 			
 			dialogue = parser.GetContent (lineNum);
